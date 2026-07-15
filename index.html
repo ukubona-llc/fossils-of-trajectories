@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fossils of Trajectories · Ukubona LLC</title>
+<link rel="icon" href="https://abikesa.github.io/favicon/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+  (function(){
+    const t = localStorage.getItem('ukubona-theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+<style>
+  :root[data-theme="dark"] {
+    --bg: #0d0d0f; --bg2: #13131a; --bg3: #1a1a24;
+    --text: #e8e4db; --text-dim: #8a8580; --text-dimmer: #4a4845;
+    --amber: #c8922a; --amber-glow: #e0a83a;
+    --violet: #7c5cbf; --violet-light: #9b7de0;
+    --border: rgba(200,146,42,0.15); --border-dim: rgba(200,146,42,0.07);
+    --logo: url('https://abikesa.github.io/logos/ukubona-dark-logo.svg');
+  }
+  :root[data-theme="light"] {
+    --bg: #f5f2eb; --bg2: #edeae2; --bg3: #e4e0d6;
+    --text: #1a1814; --text-dim: #6b6560; --text-dimmer: #bab5ae;
+    --amber: #9a6e1a; --amber-glow: #b8820a;
+    --violet: #5a3da0; --violet-light: #7654c8;
+    --border: rgba(154,110,26,0.2); --border-dim: rgba(154,110,26,0.08);
+    --logo: url('https://abikesa.github.io/logos/ukubona-light-logo.svg');
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:17px;line-height:1.75;transition:background .3s,color .3s;}
+  nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:56px;backdrop-filter:blur(12px);}
+  .nav-logo{display:flex;align-items:center;gap:.75rem;text-decoration:none;color:var(--text);}
+  .nav-logo-img{width:28px;height:28px;background-image:var(--logo);background-size:contain;background-repeat:no-repeat;background-position:center;animation:spin 20s linear infinite;flex-shrink:0;}
+  @keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+  .nav-wordmark{font-family:'DM Serif Display',serif;font-size:1rem;letter-spacing:.02em;color:var(--amber);}
+  .nav-links{display:flex;align-items:center;gap:1.5rem;list-style:none;}
+  .nav-links a{font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-dim);text-decoration:none;transition:color .2s;}
+  .nav-links a:hover,.nav-links a.active{color:var(--amber);}
+  .theme-toggle{background:none;border:1px solid var(--border);color:var(--text-dim);padding:.25rem .6rem;border-radius:4px;cursor:pointer;font-family:'DM Mono',monospace;font-size:.7rem;transition:all .2s;}
+  .theme-toggle:hover{color:var(--amber);border-color:var(--amber);}
+  .hero{min-height:70vh;display:flex;flex-direction:column;justify-content:center;padding:5rem 2rem 3rem;max-width:900px;margin:0 auto;}
+  .hero-eyebrow{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--violet-light);margin-bottom:1.5rem;}
+  .hero-title{font-family:'DM Serif Display',serif;font-size:clamp(2.2rem,5.5vw,3.8rem);line-height:1.12;color:var(--text);margin-bottom:1rem;}
+  .hero-title em{font-style:italic;color:var(--amber);}
+  .hero-subtitle{font-family:'DM Serif Display',serif;font-style:italic;font-size:clamp(1rem,2.3vw,1.3rem);color:var(--text-dim);margin-bottom:2.5rem;max-width:640px;}
+  .hero-rule{width:80px;height:2px;background:linear-gradient(90deg,var(--amber),transparent);margin-bottom:2rem;}
+  .hero-abstract{max-width:660px;color:var(--text-dim);font-size:1rem;line-height:1.8;}
+  .provenance{margin-top:2.5rem;padding:1rem 1.25rem;background:var(--bg2);border:1px solid var(--border);border-radius:6px;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--text-dimmer);letter-spacing:.03em;}
+  .provenance a{color:var(--amber);text-decoration:none;border-bottom:1px dotted var(--amber);}
+  main{max-width:780px;margin:0 auto;padding:0 2rem 6rem;}
+  section{margin-bottom:5rem;scroll-margin-top:72px;}
+  .section-eyebrow{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--violet-light);margin-bottom:.75rem;}
+  h2{font-family:'DM Serif Display',serif;font-size:clamp(1.4rem,3.2vw,1.9rem);line-height:1.25;color:var(--text);margin-bottom:1.5rem;}
+  h3{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--amber);margin:2rem 0 .75rem;}
+  p{margin-bottom:1.25rem;color:var(--text-dim);}
+  strong{color:var(--text);font-weight:600;}
+  em{font-style:italic;color:var(--amber-glow);}
+  .speaker-turn{margin:2.25rem 0;padding:1.5rem 1.75rem;background:var(--bg2);border:1px solid var(--border-dim);border-radius:6px;position:relative;}
+  .speaker-turn.user{border-left:3px solid var(--violet);}
+  .speaker-turn.model{border-left:3px solid var(--amber);}
+  .speaker-tag{font-family:'DM Mono',monospace;font-size:.62rem;text-transform:uppercase;letter-spacing:.14em;color:var(--text-dimmer);margin-bottom:.85rem;display:block;}
+  .speaker-turn.user .speaker-tag{color:var(--violet-light);}
+  .speaker-turn.model .speaker-tag{color:var(--amber);}
+  .speaker-turn p{margin-bottom:1rem;}
+  .speaker-turn p:last-child{margin-bottom:0;}
+  .equation-line{text-align:center;padding:.6rem 0;font-family:'DM Mono',monospace;font-size:.95rem;color:var(--amber-glow);letter-spacing:.03em;}
+  .pentad-table{margin:2.25rem 0;border:1px solid var(--border);border-radius:6px;overflow:hidden;width:100%;border-collapse:collapse;}
+  .pentad-table th{background:var(--bg3);font-family:'DM Mono',monospace;font-size:.64rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-dimmer);padding:.85rem 1rem;text-align:left;font-weight:500;}
+  .pentad-table td{padding:.85rem 1rem;font-size:.86rem;color:var(--text-dim);border-top:1px solid var(--border-dim);vertical-align:top;}
+  .pentad-table tr:hover td{background:var(--bg3);}
+  .pentad-table td.pos{font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--amber);text-align:center;width:2.5rem;}
+  .pentad-table td.roman{font-weight:600;color:var(--text);}
+  .list-block{margin:1.75rem 0;padding-left:0;list-style:none;}
+  .list-block li{margin-bottom:1rem;padding-left:1.6rem;position:relative;color:var(--text-dim);}
+  .list-block li::before{content:'→';position:absolute;left:0;color:var(--amber);font-family:'DM Mono',monospace;}
+  .list-block li strong{color:var(--text);}
+  .fallout-block{margin:1.75rem 0;padding:1.25rem 1.5rem;background:var(--bg2);border:1px solid var(--border-dim);border-radius:6px;}
+  .fallout-item{display:flex;gap:.75rem;align-items:baseline;margin-bottom:.6rem;font-size:.88rem;}
+  .fallout-item:last-child{margin-bottom:0;}
+  .fallout-item .fi-label{color:var(--text-dim);flex-shrink:0;min-width:230px;}
+  .fallout-item .fi-arrow{color:var(--text-dimmer);font-family:'DM Mono',monospace;}
+  .fallout-item .fi-target{color:var(--amber);font-weight:500;}
+  .zinger{margin:3rem 0;padding:1.75rem 2rem;border-left:3px solid var(--amber);background:var(--bg2);}
+  .zinger p{font-family:'DM Serif Display',serif;font-size:clamp(1.02rem,2.3vw,1.25rem);color:var(--text);line-height:1.5;margin-bottom:0;font-style:italic;}
+  .zinger-attr{margin-top:.75rem;font-family:'DM Mono',monospace;font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-dimmer);}
+  .k08-callout{margin:2rem 0;padding:1.5rem 1.75rem;background:rgba(124,92,191,0.06);border:1px solid rgba(124,92,191,0.2);border-radius:6px;}
+  .k08-callout .cal-label{font-family:'DM Mono',monospace;font-size:.64rem;text-transform:uppercase;letter-spacing:.14em;color:var(--violet-light);margin-bottom:.75rem;display:block;}
+  .epistemology-chain{margin:2rem 0;padding:1.5rem 1.75rem;background:var(--bg2);border:1px solid var(--border);border-radius:6px;font-family:'DM Serif Display',serif;font-size:1rem;color:var(--text);line-height:2;}
+  .epistemology-chain .ec-line{display:block;padding-left:1rem;position:relative;}
+  .epistemology-chain .ec-line::before{content:'∴';position:absolute;left:0;color:var(--amber);}
+  footer{border-top:1px solid var(--border);padding:2.5rem 2rem;max-width:780px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+  .footer-mark{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--text-dimmer);letter-spacing:.08em;}
+  .footer-mark span{color:var(--amber);}
+  .footer-mark a{color:var(--text-dimmer);text-decoration:none;}
+  .footer-mark a:hover{color:var(--amber);}
+  @media (max-width:640px){
+    nav{padding:0 1rem;} .nav-links{gap:1rem;} .nav-links li:not(:last-child){display:none;}
+    .hero{padding:3.5rem 1rem 2.5rem;} main{padding:0 1rem 4rem;}
+    .fallout-item{flex-direction:column;gap:.15rem;} .fallout-item .fi-label{min-width:0;}
+    footer{padding:2rem 1rem;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-img" role="img" aria-label="Ukubona rotating logo"></div>
+    <span class="nav-wordmark">Ukubona</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#reconstruction">Reconstruction</a></li>
+    <li><a href="#pentad">Pentad</a></li>
+    <li><a href="#dynamics">Dynamics</a></li>
+    <li><a href="#fossils">Fossils</a></li>
+    <li><a href="#k08">K08</a></li>
+  </ul>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">◑</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow">Ukubona LLC · Roundtable Archive · Kampala 2026</div>
+  <h1 class="hero-title">Fossils of<br><em>Trajectories</em></h1>
+  <p class="hero-subtitle">Agent, Manifold, Dynamics, Trace, Objective — and the K08 that was already there</p>
+  <div class="hero-rule"></div>
+  <p class="hero-abstract">
+    A single roundtable exchange, archived verbatim. It begins with a correction to Demis Hassabis's three conditions for AI flourishing, reconstructs them as a five-term pentad grounded in dynamics rather than optimization, arrives at an epistemology in which data are not observations but fossils of trajectories, and closes on an unplanned continuity: the same structure sitting, unnoticed, in the Specific Aims page of a 2020–2024 K08.
+  </p>
+  <div class="provenance">
+    Companion volume: <a href="https://ukubona-llc.github.io/monograph/">ukubona-llc.github.io/monograph</a> — <em>Piecewise Differentiable Ontologies</em>. This page is a sibling artifact, not a revision: append-only, verbatim, diff-verifiable against the source exchange.
+  </div>
+</div>
+
+<main>
+
+  <!-- I. RECONSTRUCTION -->
+  <section id="reconstruction">
+    <div class="section-eyebrow">I · The Reconstruction</div>
+    <h2>Hassabis Begins at Optimization.<br>The Pentad Begins One Level Deeper.</h2>
+
+    <p>Demis Hassabis's stated conditions for AI to flourish: a huge search space, a clear objective function, lots of data. The roundtable's first move was to ask what these correspond to physically — and to catch a transposition.</p>
+
+    <table class="pentad-table">
+      <tr><th>Physics</th><th>Hassabis</th><th>Why</th></tr>
+      <tr><td class="roman">Space</td><td>Search space</td><td>The manifold you're exploring.</td></tr>
+      <tr><td class="roman">Agent</td><td>Data</td><td>The walkers, trajectories, experiences. Data are the traces left by agents through the manifold.</td></tr>
+      <tr><td class="roman">Time</td><td>Objective</td><td>Time is what distinguishes how trajectories accumulate. The objective determines which temporal dynamics are rewarded.</td></tr>
+    </table>
+
+    <p>Said differently: search defines where you can go. Data records where you've been. Objective determines how history changes the future. The objective isn't merely "maximize score" — it implicitly chooses a class of temporal dynamics. Chess rewards long coherent trajectories (ballistic). Go is already more diffusive — influence propagates over the board. Language is extremely diffusive — meaning emerges statistically across billions of trajectories. Population health is almost purely diffusive — no single patient determines policy.</p>
+
+    <p>So the objective isn't "score." It's what kind of propagation the system is optimizing: trajectory, or field. That makes Hassabis's second condition much deeper than it first appears — not a scalar to optimize, but the equation of motion. You don't just specify where particles may exist (the space); you must also specify the dynamics.</p>
+  </section>
+
+  <!-- II. THE PENTAD -->
+  <section id="pentad">
+    <div class="section-eyebrow">II · The Pentad</div>
+    <h2>Agent. Manifold. Dynamics.<br>Trace. Objective.</h2>
+
+    <p>The reconstruction rewrites Hassabis's three conditions as five prior ones — not extensions, but the conditions that make the other three meaningful in the first place. Before you can search, you need something that moves and somewhere for it to move.</p>
+
+    <ul class="list-block">
+      <li><strong>Agent</strong> — something that moves.</li>
+      <li><strong>Manifold</strong> — somewhere to move.</li>
+      <li><strong>Dynamics</strong> — the laws governing trajectories (ballistic, diffusive, mixtures, constraints).</li>
+      <li><strong>Trace</strong> — event streams recording those trajectories.</li>
+      <li><strong>Objective</strong> — the criterion by which trajectories are evaluated or redirected.</li>
+    </ul>
+
+    <p>Demis's three requirements then fall out naturally:</p>
+
+    <div class="fallout-block">
+      <div class="fallout-item"><span class="fi-label">Massive combinatorial search space</span><span class="fi-arrow">→</span><span class="fi-target">the manifold</span></div>
+      <div class="fallout-item"><span class="fi-label">High-quality real / simulated data</span><span class="fi-arrow">→</span><span class="fi-target">traces</span></div>
+      <div class="fallout-item"><span class="fi-label">Clear objective function</span><span class="fi-arrow">→</span><span class="fi-target">objective</span></div>
+    </div>
+
+    <p>This is less an extension of Hassabis than a subsumption. His formulation begins at optimization. The pentad begins one level deeper, at dynamics — and once you start there, optimization becomes just one particular way of selecting among possible trajectories.</p>
+
+    <h3>The Ukubona Mapping</h3>
+    <p>Applied directly to digital twins, the pentad relabels as follows — with the objective moved deliberately to position V, because in biology it doesn't exist until you've decided what game you're playing:</p>
+
+    <table class="pentad-table">
+      <tr><th>Pos</th><th>AI</th><th>Ukubona</th></tr>
+      <tr><td class="pos">I</td><td class="roman">Agent</td><td>Walker (patient, clinician, molecule, enterprise)</td></tr>
+      <tr><td class="pos">II</td><td class="roman">Manifold</td><td>State space / care space / social space</td></tr>
+      <tr><td class="pos">III</td><td class="roman">Trajectory</td><td>Diffusion or ballistic motion through that manifold</td></tr>
+      <tr><td class="pos">IV</td><td class="roman">Event stream</td><td>Timestamped traces ("data") left behind</td></tr>
+      <tr><td class="pos">V</td><td class="roman">Objective</td><td>Fitness / utility / survival / prediction / intervention</td></tr>
+    </table>
+
+    <p>Evolution had no reward function written down. People simply wandered. Hospitals accumulated charts. Cells accumulated mutations. Companies accumulated transactions. The reward function is inferred afterwards. That is why Hassabis's formulation felt slightly "inside-out" for biological systems: AlphaGo begins with rules — an objective given in advance. Ukubona's digital twins begin with trajectories, because biology doesn't hand you the objective up front.</p>
+  </section>
+
+  <!-- III. DYNAMICS -->
+  <section id="dynamics">
+    <div class="section-eyebrow">III · Dynamics as Memory</div>
+    <h2>Ballistic Retains Direction.<br>Diffusion Destroys It.</h2>
+
+    <p>There are only a handful of fundamental ways to move through a manifold — and they aren't primarily equations about particles. They're equations about memory.</p>
+
+    <div class="equation-line">Ballistic — Δx ∝ t — the walker remembers where it was going.</div>
+    <div class="equation-line">Diffusive — ⟨Δx²⟩ ∝ t — the walker forgets.</div>
+
+    <p>Ballistic motion retains directional information; diffusion destroys it. That is why stochastic gradient descent begins ballistic — large coherent gradients — and becomes diffusive near an optimum. That is why children learn ballistically and experts refine diffusively. That is why an epidemic initially spreads along travel networks before becoming community transmission. That is why tiki-taka alternates between purposeful attack and local diffusion until a passing lane suddenly appears.</p>
+
+    <div class="zinger">
+      <p>The walkers, trajectories, experiences. Data are the traces left by agents through the manifold.</p>
+      <div class="zinger-attr">— the line that reopened the pentad</div>
+    </div>
+
+    <p>Ukubona digital twins live off event-streams: timestamped, attributed — the closest thing to ontology, and therefore to epistemology.</p>
+  </section>
+
+  <!-- IV. DATA AS FOSSILS -->
+  <section id="fossils">
+    <div class="section-eyebrow">IV · An Epistemology</div>
+    <h2>Knowledge Isn't Stored Objects.<br>It Is Reconstructed Trajectories.</h2>
+
+    <p>The "data" are not the agents. They're not even the observations. They are the fossils of trajectories. That changes everything.</p>
+
+    <p>The ontology isn't <em>Patient → Diagnosis → Medication</em>. The ontology is <em>Event, at time t, caused by agent x, in state y</em>. Everything else is derived. That's exactly what event sourcing does in distributed systems. It's also what physics does. And — arguably — what history is.</p>
+
+    <p>Every timestamp is a tiny tangent vector. Every event stream is a sampled geodesic. A digital twin is simply the best estimate of the hidden path connecting those samples.</p>
+
+    <div class="epistemology-chain">
+      <span class="ec-line">Reality consists of trajectories.</span>
+      <span class="ec-line">Observation consists of fossils.</span>
+      <span class="ec-line">Knowledge consists of reconstructing the trajectory from its fossil record.</span>
+      <span class="ec-line">Prediction consists of extending that reconstructed trajectory into the future.</span>
+      <span class="ec-line">Intervention consists of bending it.</span>
+    </div>
+
+    <p>Paleontologists don't observe dinosaurs; they observe traces from which trajectories and behaviors are inferred. Physicists don't observe electron paths directly; they reconstruct them from detector hits. Astronomers infer stellar evolution from photons that left millions of years ago. Ukubona's event streams are exactly that: fossil records of motion through a latent manifold.</p>
+  </section>
+
+  <!-- V. K08 -->
+  <section id="k08">
+    <div class="section-eyebrow">V · The Unplanned Continuity</div>
+    <h2>The Footprints of Missingness<br>Were Always Footprints of Trajectories.</h2>
+
+    <div class="k08-callout">
+      <span class="cal-label">Verbatim — the prompt that closed the loop</span>
+      <p style="color:var(--text);margin-bottom:0;">"Fossils of trajectories rekindles something from the specific aims page of my K08 (2020–2024): to trace the footprints of missingness — I expected to not find data on perioperative and long-term risks following nephrectomy in older living kidney donors... and here we are talking of fossils of trajectories!"</p>
+    </div>
+
+    <p>The K08 wasn't really about "missing data." It was about missing trajectories. The conventional view treats missingness as a matrix with empty cells — a static ontology. The K08's actual question was fundamentally temporal: <em>what happened to this person after nephrectomy?</em> The missingness wasn't a blank value. It was an unobserved continuation of a path through state space.</p>
+
+    <p>A creatinine measurement isn't "a datum." It's evidence that, at time t<sub>i</sub>, a kidney occupied a particular region of physiological state space. A hospitalization isn't "an outcome." It's a point on a path. Death isn't a binary endpoint. It's the terminal boundary condition of a trajectory.</p>
+
+    <p>This reframes causal inference itself. Traditional epidemiology asks: <em>what is the treatment effect?</em> The trajectory view asks: <em>how does treatment bend the geodesic?</em> The second question is geometrically richer — not estimating a coefficient, but estimating how interventions alter the shape of paths through a manifold.</p>
+
+    <div class="zinger">
+      <p>Reality consists of trajectories. Observation consists of fossils. Knowledge consists of reconstructing the trajectory from its fossil record. Prediction consists of extending that reconstructed trajectory into the future. Intervention consists of bending it.</p>
+      <div class="zinger-attr">— compact epistemology, arrived at from K08 through Ukubona</div>
+    </div>
+
+    <p>The object of study never changed between the K08 and Ukubona LLC. Only the substrate did: sparse perioperative records in one case, continuous event streams in the other. Fifteen months and two decades apart, the same question was being asked — <em>what is the shape of the path connecting these fossils?</em> — long before either roundtable methodology or TMVES existed to name it.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-mark">Agent → Manifold → Dynamics → Trace → Objective</div>
+  <div class="footer-mark"><a href="https://ukubona-llc.github.io/monograph/">ukubona-llc.github.io/monograph</a> · Ukubona LLC · 2026</div>
+</footer>
+
+<script>
+  function toggleTheme(){
+    const root=document.documentElement;
+    const cur=root.getAttribute('data-theme');
+    const next=cur==='dark'?'light':'dark';
+    root.setAttribute('data-theme',next);
+    localStorage.setItem('ukubona-theme',next);
+  }
+  const sections=document.querySelectorAll('section[id]');
+  const navLinks=document.querySelectorAll('.nav-links a');
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+entry.target.id));
+      }
+    });
+  },{rootMargin:'-40% 0px -55% 0px'});
+  sections.forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>
